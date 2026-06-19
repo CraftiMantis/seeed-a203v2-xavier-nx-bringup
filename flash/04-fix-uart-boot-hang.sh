@@ -21,13 +21,13 @@
 # with the board in force-recovery mode. Idempotent and reversible.
 #
 # Usage:
-#   LDK_DIR=/path/to/Linux_for_Tegra sudo -E bash flash/uart-boot-console-fix.sh
+#   LDK_DIR=/path/to/Linux_for_Tegra sudo -E bash flash/04-fix-uart-boot-hang.sh
 set -euo pipefail
 
 LDK_DIR="${LDK_DIR:-}"
 [[ -n "$LDK_DIR" && -d "$LDK_DIR" ]] || {
   echo "Set LDK_DIR to your Linux_for_Tegra (Seeed BSP) directory, e.g.:"
-  echo "  LDK_DIR=~/nvidia/seeed-l4t-r35.6.1 sudo -E bash flash/uart-boot-console-fix.sh"
+  echo "  LDK_DIR=~/nvidia/seeed-l4t-r35.6.1 sudo -E bash flash/04-fix-uart-boot-hang.sh"
   exit 2; }
 
 DTB_DIR="${LDK_DIR}/kernel/dtb"

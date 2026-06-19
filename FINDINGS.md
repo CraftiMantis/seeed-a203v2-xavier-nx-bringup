@@ -84,14 +84,14 @@ peripheral (MCU, FTDI, sensor) is powered on J12 pin 8/10.
 J12 pin 8/10) as its console and reads incoming bytes as user input.
 **Fix (NVIDIA-endorsed, forum topic 273815): dual-DTB.** Point `TBCDTB_FILE` (bootloader
 DTB) at a copy with `serial@3100000` **disabled**, leave `DTB_FILE` (kernel) **enabled**.
-UEFI stops listening; Linux keeps full `/dev/ttyTHS0`. → [`flash/uart-boot-console-fix.sh`](flash/uart-boot-console-fix.sh).
+UEFI stops listening; Linux keeps full `/dev/ttyTHS0`. → [`flash/04-fix-uart-boot-hang.sh`](flash/04-fix-uart-boot-hang.sh).
 Verify by booting with the peripheral already powered — it should boot clean.
 
 ### U2 — UART_A pins are dead until the MB1_BCT pinmux is flashed
 **Symptom:** `/dev/ttyTHS0` exists but no data; the pad shows `MUX UNCLAIMED`.
 **Cause:** pad control is set at boot by MB1_BCT; the stock pinmux leaves UART_A (and ~18
 other header pins) unclaimed.
-**Fix:** [`flash/mb1-bct-hdr40-pinmux.sh`](flash/mb1-bct-hdr40-pinmux.sh) → `flash.sh -k MB1_BCT`.
+**Fix:** [`flash/03-claim-hdr40-pins.sh`](flash/03-claim-hdr40-pins.sh) → `flash.sh -k MB1_BCT`.
 Both U1 and U2 must be done for a usable, boot-safe UART_A.
 
 ---

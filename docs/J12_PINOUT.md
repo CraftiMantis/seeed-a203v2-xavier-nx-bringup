@@ -1,6 +1,6 @@
 # J12 40-pin header — pinmux map (A203-V2 + Xavier NX)
 
-These are the functions the [`mb1-bct-hdr40-pinmux.sh`](../flash/mb1-bct-hdr40-pinmux.sh)
+These are the functions the [`mb1-bct-hdr40-pinmux.sh`](../flash/03-claim-hdr40-pins.sh)
 script claims. Each row is one PADCTL register override in
 `tegra19x-mb1-pinmux-p3668-a01.cfg`. Pin numbers are the J12 40-pin header.
 
@@ -26,7 +26,7 @@ script claims. Each row is one PADCTL register override in
 pins 8/10 (+ 11/36 for HW flow control). Two gotchas apply to it — the pins are
 dead until this pinmux flash, **and** UEFI grabs the same UART as its boot
 console (see [FINDINGS.md](../FINDINGS.md) and
-[`uart-boot-console-fix.sh`](../flash/uart-boot-console-fix.sh)).
+[`uart-boot-console-fix.sh`](../flash/04-fix-uart-boot-hang.sh)).
 
 Verify on the board after the pinmux flash:
 ```bash

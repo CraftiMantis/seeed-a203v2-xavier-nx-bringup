@@ -17,7 +17,7 @@
 # reason naive attempts die at the tegraflash sign step.
 #
 # Run with the board in force-recovery mode (lsusb shows 0955:7e19):
-#   LDK_DIR=/path/to/Linux_for_Tegra sudo -E bash flash/mb1-bct-hdr40-pinmux.sh
+#   LDK_DIR=/path/to/Linux_for_Tegra sudo -E bash flash/03-claim-hdr40-pins.sh
 set -uo pipefail
 
 [[ "$(id -u)" -eq 0 ]] || { echo "must run as root (sudo -E)"; exit 2; }
