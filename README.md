@@ -13,7 +13,7 @@ that won't start. Scripts are generalized from a bench-validated bring-up.
 - An **x86_64 Ubuntu host** to flash from, USB-C to the carrier
 - ~30 GB free on the host
 
-## Where the BSP comes from (no hunting — step 1 pulls it all)
+## Where the BSP comes from
 
 | Piece | Source |
 |---|---|
